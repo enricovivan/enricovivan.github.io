@@ -1,0 +1,46 @@
+.b-white {
+    border: 5px solid white;
+}
+
+.b-black {
+    border: 5px solid black;
+}
+
+.b-gray {
+    border: 5px solid rgb(204, 204, 204);
+}
+
+.bg-gray {
+    background-color: rgb(204, 204, 204);
+}
+
+.bg-orange {
+    background-color: rgb(255, 102, 0);
+}
+
+.tr-border {
+    border: 0;
+    border-top-right-radius: 100px;
+}
+
+.header-waves {
+    width: 100%;
+    height: 15%;
+    background-color: orange;
+    content: "";
+}
+
+.line {
+    border: 0;
+    height: 3px;
+    background-color: rgb(255, 174, 0);
+    opacity: 100%;
+    width: 15%;
+    padding: 0;
+}
+
+#botao_topo {
+    position: fixed;
+    bottom: 50px;
+    right: 25px;
+}
