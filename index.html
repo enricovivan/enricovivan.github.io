@@ -11,13 +11,44 @@
 </head>
 <body class="d-flex min-vh-100 flex-column bg-dark" id="body">
     
+    <section class="offcanvas offcanvas-start offcanvas-tamanho" tabindex="-1" id="sideMenu" data-bs-keyboard="false" data-bs-backdrop="false">
+        <article class="offcanvas-header">
+            <h6 class="text-start">MENU</h6>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+        </article>
+
+        <hr class="m-0">
+
+        <article class="offcanvas-body px-0">
+            <nav class="nav flex-column align-items-start">
+                <ul class="navbar-nav ps-3">
+                    <li class="nav-item">
+                        <a href="#body" class="nav-link active">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contato" class="nav-link active">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#habilidades" class="nav-link active">Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#formacao" class="nav-link active">Formação</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#sobre" class="nav-link active">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#experiencia" class="nav-link active">Experiência</a>
+                    </li>
+                </ul>
+            </nav>
+        </article>
+    </section>
+
     <section class="container-fluid my-3">
         <article class="card" id="pagina-header">
-            <section class="card-header">
-                <header>
-                    <nav class="navbar navbar-expand-sm">
-
-                        <a href="#" class="navbar-brand">MENU</a>
+            <!--<section class="card-header">
+                    <nav class="navbar navbar-expand-sm fixed-top bg-light position-fixed d-flex">
                         
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#items">         
                             <i class="material-icons">menu</i>      
@@ -47,10 +78,10 @@
                         </div>
                         
                     </nav>
-                </header>
-            </section>
+            
+            </section>-->
             <section class="card-body px-5">
-                <div>
+                <header>
                     <section class="row row-cols-1 row-cols-md-2 d-flex align-items-center mt-5">
                         <article class="col d-flex justify-content-center justify-content-md-start">
                             <img src="./img/Capybara.png" alt="Capivara" class="img-fluid img-thumbnail b-gray bg-white rounded-circle mb-5 mb-sm-0" width="250px">
@@ -61,7 +92,7 @@
                             <h3 class="mt-2 fw-light">CURRICULUM VITAE</h3>
                         </article>
                     </section>
-                </div> 
+                </header> 
 
                 <main>
                     <section class="row row-cols-1 row-cols-md-2 mt-5">
@@ -162,6 +193,18 @@
         </article>
     </section>
     
+    <section>
+
+        <article class="position-fixed menu-button">
+
+            <button type="button" class="btn float-end" data-bs-toggle="offcanvas" data-bs-target="#sideMenu">
+                <i class="material-icons rounded">arrow_forward_ios</i>
+            </button>
+            
+        </article>
+
+    </section>
+
     <!--<a href="#body">
         <button type="button" class="btn btn-floating rounded-circle text-danger" id="botao_topo">
             <i class="material-icons flecha">arrow_upward</i>

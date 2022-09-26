@@ -30,6 +30,16 @@
     content: "";
 }
 
+.menu-button {
+    top: 50%;
+    left: 10px;
+    transform: translate(0%, -50%);
+}
+
+.offcanvas-tamanho {
+    max-width: 50%;
+}
+
 .line {
     border: 0;
     height: 3px;
