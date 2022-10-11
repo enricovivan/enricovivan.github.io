@@ -1,0 +1,51 @@
+/*
+
+<!-- Prova Semestral Web Design -->
+<!-- Estudante: Enrico Vivan -->
+<!-- Dia: 10/10/2022 -->
+
+*/
+
+.cinza-claro {
+    color: rgb(211, 211, 211);
+}
+
+.cinza-escuro {
+    color: rgb(161, 161, 161);
+}
+
+.perry {
+    width: 200px;
+}
+
+.hr-contato {
+    border: 1px solid white;
+    width: 20%;
+    align-self: center;
+}
+
+.only-mobile {
+    display: none;
+}
+
+.offcanvas-tamanho {
+    max-width: 75%;
+}
+
+/* Quando a tela for menor que 768, esconder a navbar e mostrar o botão que ativa o offcanvas (aside) */
+/* Além também de definir que a imagem central dos funcionarios deve ser reduzida ao mesmo tamanho das demais */
+@media screen and (max-width: 767px){
+    .only-pc {
+        display: none;
+    }
+
+    .only-mobile {
+        display: block;
+        top: 50%;
+        left: 0px;
+    }
+
+    .perry {
+        width: 150px;
+    }
+}

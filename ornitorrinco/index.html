@@ -1,0 +1,338 @@
+
+<!-- Prova Semestral Web Design -->
+<!-- Estudante: Enrico Vivan -->
+<!-- Dia: 10/10/2022 -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova Web Design - Enrico Vivan</title>
+    <!-- Importação do Bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- Importando o Meu CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Importando a biblioteca de icones do google -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<!-- Definição do body com tamanho mínimo de 100% da viewport para que o footer sempre fique colado ao final da página -->
+<body class="bg-dark min-vh-100 d-flex flex-column" id="inicio">
+
+    <!-- Criação do Offcanvas utilizando o aside uma tag do html5, que é um elemento que fica ao lado da página -->
+    <aside class="offcanvas offcanvas-start offcanvas-tamanho rounded-end bg-dark" id="asideMenu" tabindex="-1">
+
+        <!-- Criando a seção da header do offcanvas sempre evitando de usar div para melhor leitura do código e organização-->
+        <section class="offcanvas-header text-white">
+            <h6 class="text-start">MENU</h6>
+            <button type="button" class="btn text-white" data-bs-dismiss="offcanvas" aria-label="Fechar"><i class="material-icons">close</i></button>
+        </section>
+
+        <!-- Criando a seção do corpo do offcanvas, que neste caso será os itens da navbar -->
+        <section class="offcanvas-body text-white px-0">
+            <nav class="nav flex-column align-items-start">
+                <ul class="navbar-nav ps-3">
+                    <li class="nav-item">
+                        <a href="#inicio" class="nav-link">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#portfolio" class="nav-link">Portfólio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#competencias" class="nav-link">Competências</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#time" class="nav-link">O Nosso Time</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#preco" class="nav-link">Tabela de Preços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contato" class="nav-link">Contato</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </aside>
+
+    <!-- Utilizando a tag nav para criar uma barra de navegação no topo da página -->
+    <nav class="navbar navbar-expand-sm bg-black text-white only-pc">
+
+        <!-- Usando section para classificar uma seção onde ficarão os links da barra de navegação -->
+        <section class="container-fluid d-flex justify-content-center">  
+            
+            <!-- Criação de Uma Lista não ordenada para listar os tópicos da página -->
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a href="#inicio" class="nav-link text-white">Início</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#portfolio" class="nav-link text-white">Portfólio</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#competencias" class="nav-link text-white">Competências</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#time" class="nav-link text-white">O Nosso Time</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#preco" class="nav-link text-white">Tabela de Preços</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#contato" class="nav-link text-white">Contato</a>
+                </li>
+
+            </ul>
+
+        </section>
+
+    </nav>
+
+    <!-- Criando uma Header, que neste caso será o nome da empresa como o primeiro conteudo a ser visto -->
+    <header class="container-fluid text-center text-white my-5">
+        
+        <figure class="figure mb-0">
+            <img src="./img/logos/ornitorrinco.png" alt="Ornitorrinco Logo" class="figure-img img-fluid" width="250px">
+        </figure>
+        <h1 class="mt-3 cinza-claro">Ornitorrinco<br>Desenvolvimento Web</h1>
+        <h3 class="fw-light cinza-escuro">A melhor empresa de desenvolvimento web do mundo</h3>
+    </header>
+
+    <!-- Utilizando a tag main para definir o conteúdo principal da página -->
+    <main class="container my-5 p-4">
+
+        <!-- Iniciando o uso do grid system do bootstrap, criando uma linha que em dispositivos médios terá 2 colunas e em dispositivos pequenos 1 colunas apenas -->
+        <!-- Esta é a seção do portfólio e das campetências da empresa -->
+        <section class="row text-white mb-5">
+
+            <!-- Usando article, pois esta parte é um artigo -->
+            <article class="col-12 col-md-6">
+                <h3 class="text-center" id="portfolio">Portfólio</h3>
+                <p class="mt-3 text-center text-md-start mb-4 mb-md-2">
+                    Ja fizemos diversos projetos para pequenas, médias e grandes empresas
+                    que de alguma forma ou de outra necessitaram de uma página web, seja
+                    para apresentação da empresa, seja um sistema interno ultra-moderno
+                    para realização de tarefas, ou até um simples e-commerce para que não
+                    fiquem dependendo de sites de terceiros que cobram mais da metade da
+                    sua renda como comissão.
+                </p>
+                <p class="text-center text-md-start">
+                    Para acessar o portfólio, <a href="https://enricovivan.github.io" target="_blank">clique aqui</a>.
+                </p>
+            </article>
+
+            <article class="col-12 col-md-6 my-5 my-md-0">
+                <h3 class="text-center" id="competencias">Competências</h3>
+                <p class="mt-3 text-center text-md-start mb-4 mb-md-2">
+                    Nossa empresa garante o sucesso do seu site e a entrega dentro dos
+                    prazos acordados com o nosso magnífico gerente de projetos, que
+                    acompanha todo o processo de desenvolvimento, desde o início, até
+                    os pequenos detalhes, conduzindo os programadores ao sucesso absoluto,
+                    dando manutenções programadas com prévio aviso, e sem afetar o pleno
+                    funcionamento do sistema escolhido.
+                </p>
+                <p class="text-center text-md-start">
+                    Para ver os preços, <a href="#preco">clique aqui</a>.
+                </p>
+            </article>
+
+        </section>
+        <!-- Fim da linha do portfólio e das competências -->
+        
+        <!-- Utilizando um separador de conteúdos -->
+        <hr class="my-md-5">
+
+        <!-- Section do Time -->
+        <section class="container-fluid text-white">
+
+            <h3 class="text-center mb-3" id="time">O Nosso Time</h3>
+            <p class="text-center">
+                Com um time altamente capacitado para o serviço, garantimos a entrega de um sistema de
+                excelente qualidade e eficiência.
+            </p>
+    
+            <!-- Início da amostragem de funcionários -->
+            <section class="row text-white my-5">
+
+                <article class="col-12 col-md-4 mt-4 mt-md-0">
+
+                    <div class="container-fluid d-flex justify-content-center">
+                        <figure class="figure">
+                            <img class="figure-img img-fluid" src="./img/funca/orni.png" alt="Orni, O Designer" width="150px">
+                        </figure>
+                    </div>
+                    
+                    <h4 class="text-center">Orni, O Designer</h4>
+                    <p class="text-center">É capaz de criar qualquer interface visualmente incrível para seu projeto.</p>
+                    <p class="text-center">Possui 25 Anos de Experiência</p>
+
+                </article>
+
+                <article class="col-12 col-md-4 mt-5 mt-md-0">
+                    <!-- Infelizmente usando div, para centralizar a imagem na coluna sem afetar a estrutura geral -->
+                    <div class="container-fluid d-flex justify-content-center">
+                        <figure class="figure">
+                            <img class="figure-img img-fluid perry" src="./img/funca/perry.webp" alt="Perry, O funcionário">
+                        </figure>
+                    </div>
+                    
+                    <h4 class="text-center">Perry, O Ornitorrinco</h4>
+                    <p class="text-center">Centrado em seus objetivos, consegue acabar qualquer serviço antes do prazo.</p>
+                    <p class="text-center">Possui 6 Anos de Experiência</p>
+
+                </article>
+
+                <article class="col-12 col-md-4 mt-5 mt-md-0">
+
+                    <div class="container-fluid d-flex justify-content-center">
+                        <figure class="figure">
+                            <img class="figure-img img-fluid" src="./img/funca/psyduck.png" alt="Psy, O Pato" width="150px">
+                        </figure>
+                    </div>
+                    
+                    <h4 class="text-center">Psy, O Pato</h4>
+                    <p class="text-center">Apesar de não ser um ornitorrinco, ele faz seus colegas pensarem que sim, e é muito bom em back-end.</p>
+                    <p class="text-center">Possui ??? Anos de Experiência</p>
+
+                </article>
+
+            </section>
+
+        </section>
+        <!-- Fim da seção de Funcionarios -->
+
+        <hr>
+
+        <!-- Utilizando novamente a tag section, para definir uma nova seção do conteúdo principal, que neste caso, será a tabela dos preços-->
+        <section class="container mt-5" id="preco">
+            
+            <!-- Criando a tabela de preços, com bordas para melhor visualização -->
+            <table class="table table-sm table-bordered caption-top text-white">
+                
+                <!-- Utilizando o caption para mostrar ao usuário sobre o que a tabela se trata -->
+                <caption class="text-white fw-bold text-center">Tabela de Preços</caption>
+
+                <thead class="text-center">
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                
+                <tbody class="text-white text-center">
+                    <tr>
+                        <td>Página Simples</td>
+                        <td>R$ 950,00</td>
+                    </tr>
+
+                    <tr>
+                        <td>Sistema de Controle</td>
+                        <td>R$ 2.000,00</td>
+                    </tr>
+
+                    <tr>
+                        <td>E-commerce</td>
+                        <td>R$ 3.500,00</td>
+                    </tr>
+
+                    <tr>
+                        <td>Sistema Completo Nunca Antes Visto</td>
+                        <td>R$ 5.000,00</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </section>
+        <!-- Fim da seção da tabela -->
+
+        <!-- Início da seção que fala sobre as formas de Contato -->
+        <section class="container-fluid text-white mt-5 d-flex justify-content-center flex-column">
+
+            <h3 class="text-center" id="contato">Contato</h3>
+            <hr class="hr-contato mt-0">
+
+            <!-- Abrindo um artigo, que será as formas de contato, será distribuído em rows para melhor responsividade -->
+            <article class="row text-white">
+
+                <!-- Usando div, para melhor compreensão e organização da sintaxe -->
+                <div class="col-12 text-center">
+                    <button type="button" class="btn text-white">
+                        <i class="material-icons">call</i>
+                    </button>
+                    <p class="mt-0"><a href="tel:+5543999999999" class="text-white">+55 (43) 9 9999-9999</a></p>
+                </div>
+
+            </article>
+
+            <!-- Criando outra linha com o article (pois se trata de uma parte de um artigo) para melhor responsividade -->
+            <article class="row text-white">
+
+                <!-- Usando div, para melhor compreensão e organização da sintaxe -->
+                <div class="col-12 text-center">
+                    <button type="button" class="btn text-white">
+                        <i><img src="./img/icons/telegram.png" alt="Telegram Contato" width="40px"></i>
+                    </button>
+                    <p class="mt-0">+55 (43) 9 9898-9898</p>
+                </div>
+
+            </article>
+
+            <!-- Criando outra linha com o article (pois se trata de uma parte de um artigo) para melhor responsividade -->
+            <article class="row text-white">
+
+                <!-- Usando div, para melhor compreensão e organização da sintaxe -->
+                <div class="col-12 text-center">
+                    <button type="button" class="btn text-white">
+                        <i><img src="./img/icons/facebook.png" alt="Facebook Contato" width="35px"></i>
+                    </button>
+                    <p class="mt-0"><a href="https://www.facebook.com" target="_blank" class="text-white">Ornitorrinco Ltda.</a></p>
+                </div>
+
+            </article>
+
+            <!-- Criando outra linha com o article (pois se trata de uma parte de um artigo) para melhor responsividade -->
+            <article class="row text-white">
+
+                <!-- Usando div, para melhor compreensão e organização da sintaxe -->
+                <div class="col-12 text-center">
+                    <button type="button" class="btn text-white">
+                        <i class="material-icons">email</i>
+                    </button>
+                    <p class="mt-0"><a href="mailto:enricovivan21@gmail.com" class="text-white">Ornitorrinco Chefe</a></p>
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer class="container-fluid py-4 mt-auto bg-black text-white">
+        <section class="text-center">
+            <p class="mb-0">Todos os Direitos Reservado à Ornitorrinco ltda ( Enrico Vivan ).</p>
+            <p class="mb-0">2022 - Infinito</p>
+        </section>
+    </footer>
+
+    <!-- Criando o Botão para abrir o aside (offcanvas) -->
+    <!-- É uma div, para melhor leitura do código -->
+    <div class="position-fixed only-mobile menu-arrow">
+        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#asideMenu">
+            <i class="material-icons text-white">arrow_forward_ios</i>
+        </button>   
+        
+    </div>
+
+    <!-- Importação do Javascript do Bootstrap -->
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+</html>
