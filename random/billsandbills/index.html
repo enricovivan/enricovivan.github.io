@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dívidas Malditas</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-black text-white d-flex min-vh-100">
+
+    <section class="container d-flex px-0 justify-content-center align-items-center">
+        <section class="card bg-dark p-3 m-2">
+            <article class="card-header">
+                <h2 class="text-center">Calculadora Suprema</h2>
+            </article>
+            <article class="card-body d-flex flex-column">
+                
+                <h3>Salário</h3>
+                <article class="container-fluid d-flex px-0">
+                    <article class="input-group">
+                        <span class="input-group-text">R$</span>
+                        <input class="form-control" type="number" name="salario" id="salario" placeholder="ex: 5000" min="0" value="0">
+                    </article>
+                    
+                    <button class="btn btn-secondary ms-1" type="button" id="confirmaSalario" onclick="confirmarSalario()">CONFIRMAR</button>
+                </article>
+
+                <br>
+                <br>
+
+                <h3>Dívidas</h3>
+                <section id="sectionDividas">
+                    <article class="container-fluid px-0 d-flex">
+                        <article class="input-group">
+                            <span class="input-group-text">R$</span>
+                            <input class="form-control" type="number" name="divida" id="divida" placeholder="ex: 15" min="0" value="0">
+                        </article>
+                        
+                        <button class="btn btn-danger ms-1" type="button" onclick="salvaDivida()">+</button>
+                        <!-- <button class="btn btn-success ms-1" type="button" onclick="adicionaCampo()">+</button> -->
+                        <!-- Comentado por motivos de falta de tempo para fazer a função para remover o campo -->
+    
+                    </article>
+                </section>
+                
+
+                <hr class="mb-4">
+
+                <section class="container-fluid p-0">
+                    <h4>Salário: </h4>
+                    <p id="pSalario">R$ 0</p>
+                </section>
+
+                <section class="container-fluid p-0">
+                    <h4>Dívidas: </h4>
+                    <p id="pDivida">R$ 0</p>
+                </section>
+
+                <hr class="mt-2">
+
+                <section class="container-fluid px-0">
+                    <h4 class="text-center">Total: </h4>
+                    <p id="pTotal" class="fs-4 text-center azur">R$ 0</p>
+                </section>
+                <!-- <button class="btn btn-info" type="button" onclick="debug()">DEBUG</button> -->
+            </article>
+        </section>
+    </section>
+
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
