@@ -1,0 +1,143 @@
+<!-- 
+    Feito por Enrico Vivan
+    6º Semestre de B.S.I.        
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Enrico Vivan">
+    <title>Cadastro de Produtos - Enrico Vivan</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body class="min-vh-100 d-flex flex-column bg-black text-light">
+    
+    <main class='container mt-4'>
+
+        <section class="p-4 rounded bg-dark">
+            <h2 class="text-center">Cadastro de Produtos</h2>
+            <hr>
+            <form action="#" id="form1">
+                <label for="cod" class="form-label">Código</label>
+                <input type="text" name="cod" id="cod" class="form-control" placeholder="Ex: CF1563321">
+                <br>
+
+                <label for="nome" class="form-label">Nome do Produto</label>
+                <input type="text" name="nome" id="nome" class="form-control" placeholder="Ex: Suco de Jabuticaba">
+                <br>
+
+                <label for="preco" class="form-label">Preço do Produto</label>
+                <article class="input-group">
+                    <span class="input-group-text">₹£</span>
+                    <input type="number" name="preco" id="preco" class="form-control" placeholder="Ex: 15,99" min='0' step="0.01">
+                </article>
+                <br>
+
+                <label for="qnt" class="form-label">Quantidade</label>
+                <input type="number" name="qnt" id="qnt" class="form-control" placeholder="Ex: 25" min="0">
+                <br>
+
+                <label for="cat" class="form-label">Categoria</label>
+                <input type="text" name="cat" id="cat" class="form-control" placeholder="Ex: A">
+                <br>
+
+                <article class="container-fluid text-center px-0">
+                    <section class="row">
+                        <article class="col-12 col-sm-6">
+                            <input type="submit" value="Gravar Produto" class="btn btn-success w-100 mb-2">
+                        </article>
+                        <article class="col-12 col-sm-6">
+                            <input type="reset" value="Redefinir Campos" class="btn btn-danger w-100">   
+                        </article>
+                    </section>
+                    
+                </article>
+            </form>
+        </section>
+
+        <section class="container-fluid px-0 table-responsive">
+            <table class="mt-4 table table-hover table-dark table-striped table-responsive-sm text-center">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Preço (₹£)</th>
+                        <th>Quantidade</th>
+                        <th>Categoria</th>
+                        <!-- <th>Editar</th> -->
+                        <th>Excluir</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyId">
+    
+                </tbody>
+            </table>
+        </section>
+        
+
+    </main>
+
+    <footer class="container-fluid px-0 mt-auto bg-dark text-center p-3">
+        <p class="mb-0">Feito por Enrico Vivan</p>
+        <p class="mb-0">2022</p>
+    </footer>
+
+    <script>
+
+        const formulario = document.getElementById('form1');
+        const tbody = document.getElementById('tbodyId');
+
+        let cont = 0;
+
+        let produto = {
+            cod: '',
+            nome: '',
+            preco: '',
+            quantidade: '',
+            categoria: '',
+        }
+
+        formulario.addEventListener('submit', (evento)=>{
+
+            evento.preventDefault();
+            
+            produto.cod = formulario.elements['cod'].value || 'N/A';
+            produto.nome = formulario.elements['nome'].value || 'Não Informado';
+            parseFloat(produto.preco = formulario.elements['preco'].value || '0');
+            parseInt(produto.qnt = formulario.elements['qnt'].value || '0');
+            produto.cat = formulario.elements['cat'].value || 'Nenhuma';
+
+            tbody.innerHTML += "<tr id='row" + cont + "'><td>" + produto.cod + '</td><td>' + produto.nome + '</td><td>' + produto.preco + '</td><td>' + produto.qnt + '</td><td>' + produto.cat + '</td><td>' + "<button type='button' class='btn btn-danger' onclick='deletaCampo("+ cont +")'>Excluir</button>" + '</td></tr>';
+
+            console.log("ID: " + produto.cont);
+            console.log("Codigo: " + produto.cod);
+            console.log("Nome: " + produto.nome);
+            console.log("Preço: " + produto.preco);
+            console.log("Quantidade: " + produto.qnt);
+            console.log("Categoria: " + produto.cat);
+
+            produto.cod = 0;
+            produto.nome = 0;
+            produto.preco = 0;
+            produto.qnt = 0;
+            produto.cat = 0;
+            cont++;
+
+        })
+
+        function deletaCampo(buttonId){
+            console.log("Deletando Campo: " + buttonId);
+
+            let row = document.getElementById('row'+buttonId);
+            tbody.removeChild(row);
+        }
+
+
+    </script>
+
+</body>
+</html>
