@@ -15,6 +15,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body class="min-vh-100 d-flex flex-column bg-black text-light">
+
+    <!-- <button type="button" onclick="debug()" class="btn btn-secondary">Debug</button> -->
     
     <main class='container mt-4'>
 
@@ -68,7 +70,7 @@
                         <th>Preço (₹£)</th>
                         <th>Quantidade</th>
                         <th>Categoria</th>
-                        <!-- <th>Editar</th> -->
+                        <th>Editar</th>
                         <th>Excluir</th>
                     </tr>
                 </thead>
@@ -93,39 +95,66 @@
 
         let cont = 0;
 
-        let produto = {
-            cod: '',
-            nome: '',
-            preco: '',
-            quantidade: '',
-            categoria: '',
-        }
+        let produto = [
+
+            {
+                id: null,
+                cod: null,
+                nome: null,
+                preco: null,
+                quantidade: null,
+                categoria: null,
+            }
+            
+        ]
+
+        produto.pop();
 
         formulario.addEventListener('submit', (evento)=>{
 
             evento.preventDefault();
             
-            produto.cod = formulario.elements['cod'].value || 'N/A';
-            produto.nome = formulario.elements['nome'].value || 'Não Informado';
-            parseFloat(produto.preco = formulario.elements['preco'].value || '0');
-            parseInt(produto.qnt = formulario.elements['qnt'].value || '0');
-            produto.cat = formulario.elements['cat'].value || 'Nenhuma';
+            let idProd, codigo, nomeProd, precoProd, quantProd, categoriaProd;
 
-            tbody.innerHTML += "<tr id='row" + cont + "'><td>" + produto.cod + '</td><td>' + produto.nome + '</td><td>' + produto.preco + '</td><td>' + produto.qnt + '</td><td>' + produto.cat + '</td><td>' + "<button type='button' class='btn btn-danger' onclick='deletaCampo("+ cont +")'>Excluir</button>" + '</td></tr>';
+            idProd = cont;
+            codigo = formulario.elements['cod'].value || 'N/A';
+            nomeProd = formulario.elements['nome'].value || 'Não Informado';
+            parseFloat(precoProd = formulario.elements['preco'].value || '0');
+            parseInt(quantProd = formulario.elements['qnt'].value || '0');
+            categoriaProd = formulario.elements['cat'].value || 'Nenhuma';
 
-            console.log("ID: " + produto.cont);
-            console.log("Codigo: " + produto.cod);
-            console.log("Nome: " + produto.nome);
-            console.log("Preço: " + produto.preco);
-            console.log("Quantidade: " + produto.qnt);
-            console.log("Categoria: " + produto.cat);
+            produto.push({
+                id: idProd,
+                cod: codigo,
+                nome: nomeProd,
+                preco: precoProd,
+                quantidade: quantProd,
+                categoria: categoriaProd,
+            });
 
-            produto.cod = 0;
-            produto.nome = 0;
-            produto.preco = 0;
-            produto.qnt = 0;
-            produto.cat = 0;
+            let insert = produto.find(produto => produto.id === cont);
+
+            tbody.innerHTML += "<tr id='row" + cont + "'><td>" + insert.cod + '</td><td>' + insert.nome + '</td><td>' + insert.preco + '</td><td>' + insert.quantidade + '</td><td>' + insert.categoria + '</td><td>' + "<button type='button' class='btn btn-primary' onclick='editarCampo(" + cont + ")'>Editar</button>" + '</td><td>' + "<button type='button' class='btn btn-danger' onclick='deletaCampo("+ cont +")'>Excluir</button>" + '</td></tr>';
+
+            // console.log("ID: " + idProd);
+            // console.log("Codigo: " + codigo);
+            // console.log("Nome: " + nomeProd);
+            // console.log("Preço: " + precoProd);
+            // console.log("Quantidade: " + quantProd);
+            // console.log("Categoria: " + categoriaProd);
+
+            // produto.cod = 0;
+            // produto.nome = 0;
+            // produto.preco = 0;
+            // produto.qnt = 0;
+            // produto.cat = 0;
             cont++;
+
+            formulario.elements['cod'].value = null;
+            formulario.elements['nome'].value = null;
+            formulario.elements['preco'].value = null;
+            formulario.elements['qnt'].value = null;
+            formulario.elements['cat'].value = null;
 
         })
 
@@ -134,6 +163,89 @@
 
             let row = document.getElementById('row'+buttonId);
             tbody.removeChild(row);
+
+            for(let i = 0; i < produto.length; i++){
+
+                if (produto[i].id === buttonId){
+
+                    produto.splice(i, 1);
+
+                }
+
+            }
+            
+        }
+
+        function editarCampo(buttonId){
+            console.log("Editando Campo: " + buttonId);
+
+            let row = document.getElementById('row'+buttonId);
+
+            let campo = produto.find(produto=>produto.id === buttonId);
+
+            console.log(row.children);
+            row.children[0].innerHTML = "<input type='text' id='cod"+buttonId+"' value='"+campo.cod+"' class='form-control' placeholder='Ex: CF1563321'/>";
+            row.children[1].innerHTML = "<input type='text' id='name"+buttonId+"' value='"+campo.nome+"' class='form-control' placeholder='Ex: Suco de Jabuticaba'/>";
+            row.children[2].innerHTML = "<input type='number' id='prec"+buttonId+"' value='"+campo.preco+"' class='form-control' placeholder='Ex: 15,99' min='0' step='0.01'/>";
+            row.children[3].innerHTML = "<input type='number' id='qntdd"+buttonId+"' value='"+campo.quantidade+"' class='form-control' placeholder='Ex: 25'/>";
+            row.children[4].innerHTML = "<input type='text' id='catt"+buttonId+"' value='"+campo.categoria+"' class='form-control' placeholder='Ex: A'/>";
+            row.children[5].innerHTML = "<button type='button' class='btn btn-success' onclick='editar("+campo.id+")'>Salvar</button>";
+            row.children[6].innerHTML = "<button type='button' class='btn btn-danger' onclick='descartar("+campo.id+")'>Descartar</button>";
+
+        }
+
+        function descartar(produtoId){
+            let prodByID = produto.find(produto => produto.id === produtoId);
+            let row = document.getElementById('row'+prodByID.id);
+
+            row.children[0].innerHTML = "<td>"+prodByID.cod+"</td>";
+            row.children[1].innerHTML = "<td>"+prodByID.nome+"</td>";
+            row.children[2].innerHTML = "<td>"+prodByID.preco+"</td>";
+            row.children[3].innerHTML = "<td>"+prodByID.quantidade+"</td>";
+            row.children[4].innerHTML = "<td>"+prodByID.categoria+"</td>";
+            row.children[5].innerHTML = "<button type='button' class='btn btn-primary' onclick='editarCampo("+produtoId+")'>Editar</button>";
+            row.children[6].innerHTML = "<button type='button' class='btn btn-danger' onclick='deletaCampo("+produtoId+")'>Excluir</button>";
+
+            // console.log(prodByID);
+            
+        }
+
+        function editar(produtoId){
+            
+            let prodByID = produto.find(produto => produto.id === produtoId);
+            let row = document.getElementById('row'+prodByID.id);
+
+            let campoCodigo = document.getElementById("cod"+produtoId);
+            let campoNome = document.getElementById("name"+produtoId);
+            let campoPreco = document.getElementById("prec"+produtoId);
+            let campoQuantidade = document.getElementById("qntdd"+produtoId);
+            let campoCategoria = document.getElementById("catt"+produtoId);
+
+            prodByID.cod = campoCodigo.value || 'N/A';
+            prodByID.nome = campoNome.value || 'Não Informado';
+            parseFloat(prodByID.preco = campoPreco.value || '0');
+            parseInt(prodByID.quantidade = campoQuantidade.value || '0');
+            prodByID.categoria = campoCategoria.value || 'Nenhuma';
+
+            row.children[0].innerHTML = "<td>"+prodByID.cod+"</td>";
+            row.children[1].innerHTML = "<td>"+prodByID.nome+"</td>";
+            row.children[2].innerHTML = "<td>"+prodByID.preco+"</td>";
+            row.children[3].innerHTML = "<td>"+prodByID.quantidade+"</td>";
+            row.children[4].innerHTML = "<td>"+prodByID.categoria+"</td>";
+            row.children[5].innerHTML = "<button type='button' class='btn btn-primary' onclick='editarCampo("+produtoId+")'>Editar</button>";
+            row.children[6].innerHTML = "<button type='button' class='btn btn-danger' onclick='deletaCampo("+produtoId+")'>Excluir</button>";
+
+
+        }
+
+
+        function debug(){
+            // produto.forEach(element => {
+            //     console.log(element);
+            // });
+
+            // let produtoBrabo = produto.find(produto=> produto.id === 0);
+            // console.log(produtoBrabo);
         }
 
 
