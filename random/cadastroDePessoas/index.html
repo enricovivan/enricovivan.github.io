@@ -1,0 +1,187 @@
+<!-- 
+    Feito por Enrico Vivan
+    6º Semestre de B.S.I.        
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Enrico Vivan">
+    <title>Cadastro de Pessoas - Enrico Vivan</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body class="min-vh-100 d-flex flex-column bg-black text-light">
+
+    <!-- <button type="button" onclick="debug()" class="btn btn-secondary">Debug</button> -->
+    
+    <main class='container-fluid px-0 mt-4'>
+
+
+        <section class="container mt-4">
+            <section class="p-4 rounded bg-dark">
+                <h2 class="text-center">Cadastro de Pessoas</h2>
+                <hr>
+
+                <form action="#" id="form1">
+
+                    <article class="row">
+                        <section class="col-12 col-md-6 mt-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" name="nome" id="nome" class="form-control" placeholder="Ex: Jorgin da Serraria">
+                        </section>
+                        <section class="col-12 col-md-6 mt-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Ex: jorge.lal@bol.com">
+                        </section>
+                    </article>
+    
+                    <article class="row">
+                        <section class="col-12 col-md-3 mt-3">
+                            <label for="nome" class="form-label">Ano de Nascimento</label>
+                            <input type="number" name="anoNasc" id="anoNasc" class="form-control" placeholder="Ex: 1984">
+                        </section>
+    
+                        <section class="col-12 col-md-4 mt-3">
+                            <label for="sexo" class="form-label">Sexo</label>
+                            <select name="sexo" id="sexo" class="form-select">
+                                <option value="m">Masculino</option>
+                                <option value="f">Feminino</option>
+                                <option value="n">Desejo Não Especificar</option>
+                            </select>
+                        </section>
+    
+                        <section class="col-12 col-md-5 mt-3">
+                            <label for="fone" class="form-label">Número de Telefone</label>
+                            <input type="text" name="fone" id="fone" class="form-control" placeholder="Ex: (43)9 9898-9898">
+                        </section>
+                    </article>
+    
+                    <article class="row">
+                        <section class="col-12 mt-3 col-md-4">
+                            <label for="rua" class="form-label mb-0">Rua</label>
+                            <input type="text" name="rua" id="rua" class="form-control" placeholder="Ex: Banano Júnior">
+                        </section>
+                        
+                        <section class="col-12 mt-3 col-md-2">
+                            <label for="numeroCasa">Nº</label>
+                            <input type="number" name="numeroCasa" id="numeroCasa" class="form-control" placeholder="Ex: 51">
+                        </section>
+    
+                        <section class="col-12 mt-3 col-md-4">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" name="cidade" id="cidade" class="form-control" placeholder="Ex: Biribirão do Sul">
+                        </section>
+    
+                        <section class="col-12 mt-3 col-md-2">
+
+                            <label for="estado">Estado</label>
+                            <select name="estado" id="estado" class="form-select">
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+
+                        </section>
+    
+                    </article>
+    
+                    <article class="row mb-3">
+
+                        <section class="col-12 col-md-6 mt-3">
+                            <label for="pass">Senha</label>
+                            <input type="password" name="pass" id="pass" class="form-control" placeholder="Ex: *******">
+                        </section>
+                        
+                        <section class="col-12 col-md-6 mt-3">
+                            <label for="cPass">Confirmar Senha</label>
+                            <input type="password" name="cPass" id="cPass" class="form-control" placeholder="Ex: *******">
+                        </section>
+
+                    </article>
+    
+                    
+    
+                    <article class="container-fluid text-center px-0">
+
+                        <section class="row">
+                            <article class="col-12 col-sm-6">
+                                <input type="submit" value="Salvar Pessoa" class="btn btn-success w-100 mb-2">
+                            </article>
+                            <article class="col-12 col-sm-6">
+                                <input type="reset" value="Redefinir Campos" class="btn btn-danger w-100">   
+                            </article>
+                        </section>
+                        
+                    </article>
+                </form>
+
+            </section>
+        </section>
+
+        <section class="container-fluid px-0 px-lg-5">
+            <section class="container-fluid px-0 table-responsive">
+                <table class="mt-4 table table-hover table-dark table-striped table-responsive-sm text-center">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Ano de Nascimento</th>
+                            <th>Gênero</th>
+                            <th>Telefone</th>
+                            <th>Rua</th>
+                            <th>Nº</th>
+                            <th>Cidade</th>
+                            <th>Estado</th>
+                            <th>E-mail</th>
+                            <th>Senha</th>
+                            <th>Editar</th>
+                            <th>Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyId">
+        
+                    </tbody>
+                </table>
+            </section>
+        </section>
+
+    </main>
+
+    
+
+    <footer class="container-fluid px-0 mt-auto bg-dark text-center p-3">
+        <p class="mb-0">Feito por Enrico Vivan</p>
+        <p class="mb-0">2022</p>
+    </footer>
+
+    <script src="./js/script.js"></script>
+
+</body>
+</html>
